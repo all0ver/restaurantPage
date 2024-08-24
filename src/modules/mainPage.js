@@ -15,7 +15,7 @@ export const main = (container) => {
           Experience the perfect blend of tradition and innovation with every bite at our restaurant. Our chefs craft
           each dish using the freshest ingredients, ensuring a memorable dining experience.
         </p>
-        <a href="#">Order now</a>
+        <a href="#" class="menuExtra">Order now</a>
       </div>
     </div>
   `;

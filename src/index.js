@@ -11,10 +11,17 @@ const container = document.querySelector("#content");
 
 // main page on start;
 main(container);
-
+const addMenu = () => {
+  const extra = document.querySelector(".menuExtra");
+  extra.addEventListener("click", () => {
+    changeAndClose();
+    menu(container);
+  })
+}
+addMenu();
 
 const mainBtn = document.querySelector("#home");
-const menuBtns = document.querySelector("#menu");
+const menuBtns = document.querySelectorAll(".menu");
 const aboutBtn = document.querySelector("#about");
 
 const changeAndClose = () => {
@@ -31,16 +38,24 @@ const changeAndClose = () => {
 mainBtn.addEventListener("click", () => {
   changeAndClose();
   main(container);
+  addMenu();
 })
 
-menuBtns.addEventListener("click", () => {
-  changeAndClose();
-  menu(container);
-})
+//menuBtns.addEventListener("click", () => {
+//  changeAndClose();
+//  menu(container);
+//})
 
 aboutBtn.addEventListener("click", () => {
   changeAndClose();
   about(container);
+})
+
+menuBtns.forEach((element) => {
+  element.addEventListener("click", () => {
+    changeAndClose();
+    menu(container);
+  })
 })
 
 // hamburger menu
@@ -49,7 +64,6 @@ aboutBtn.addEventListener("click", () => {
 
 const menuBtn = document.querySelector(".menuBtn");
 const navUl = document.querySelector(".navUl");
-const quitList = [menuBtns, menuBtn, navUl, mainBtn, aboutBtn];
 
 const toggleMenu = () => {
   if (document.body.style.overflow === 'hidden') {
@@ -62,5 +76,6 @@ const toggleMenu = () => {
 }
 
 menuBtn.addEventListener("click", toggleMenu);
+navUl.addEventListener("click", toggleMenu);
 
 
