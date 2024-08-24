@@ -28,15 +28,12 @@ nav {
   align-items: center;
   justify-content: space-between;
   font-size: 1.25rem;
+  padding: 0 2rem;
 }
 
-nav > p {
+nav p {
   font-weight: 700;
   font-size: 2rem;
-}
-
-nav > img {
-  height: 100px;
 }
 
 ul {
@@ -66,6 +63,16 @@ nav > button {
   border-radius: 0.5rem;
 }
 
+.menuBtn {
+  display: none;
+}
+
+.menuRow {
+  width: 2.5rem;
+  height: 0.25rem;
+  background-color: black;
+}
+
 #content {
   flex: 1;
   display: flex;
@@ -87,4 +94,38 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* media queries */
+
+@media (max-width: 700px) {
+  header button {
+    display: none;
+  }
+
+  .invisible {
+    display: none;
+  }
+
+  .menuBtn {
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menuShow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.85);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3rem;
+    gap: 6rem;
+  }
 }

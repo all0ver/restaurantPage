@@ -6,30 +6,61 @@ import { about } from "./modules/about.js";
 import { main } from "./modules/mainPage.js";
 import { menu } from "./modules/menu.js";
 
+
 const container = document.querySelector("#content");
 
+// main page on start;
+main(container);
+
+
 const mainBtn = document.querySelector("#home");
-const menuBtn = document.querySelector("#menu");
+const menuBtns = document.querySelector("#menu");
 const aboutBtn = document.querySelector("#about");
 
-mainBtn.addEventListener("click", () => {
+const changeAndClose = () => {
   if (container.firstChild) {
-    container.textContent = "";
+    if (container.firstChild) {
+      container.innerHTML = "";
+    }
+    if (document.body.style.overflow === "hidden") {
+      toggleMenu();
+    }
   }
+}
+
+mainBtn.addEventListener("click", () => {
+  changeAndClose();
   main(container);
 })
 
-menuBtn.addEventListener("click", () => {
-  if (container.firstChild) {
-    container.textContent = "";
-  }
+menuBtns.addEventListener("click", () => {
+  changeAndClose();
   menu(container);
 })
 
 aboutBtn.addEventListener("click", () => {
-  if (container.firstChild) {
-    container.textContent = "";
-  }
+  changeAndClose();
   about(container);
 })
-console.log("test");
+
+// hamburger menu
+
+
+
+const menuBtn = document.querySelector(".menuBtn");
+const navUl = document.querySelector(".navUl");
+const quitList = [menuBtns, menuBtn, navUl, mainBtn, aboutBtn];
+
+const toggleMenu = () => {
+  if (document.body.style.overflow === 'hidden') {
+    document.body.style.overflow = '';
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+  navUl.classList.toggle("invisible");
+  navUl.classList.toggle("menuShow");
+}
+
+menuBtn.addEventListener("click", toggleMenu);
+
+
