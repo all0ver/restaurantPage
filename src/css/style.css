@@ -96,6 +96,16 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.adressMain {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.adressInfo {
+  font-size: 1.25rem;
+  color: #E57B07;
+}
+
 /* media queries */
 
 @media (max-width: 700px) {
@@ -129,3 +139,4 @@ footer a:hover {
     gap: 6rem;
   }
 }
+
